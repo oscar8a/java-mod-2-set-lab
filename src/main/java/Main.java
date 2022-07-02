@@ -10,7 +10,7 @@ public class Main {
         loadBooks(library);
 
         do {
-            System.out.println("Would you like to Add or Find a book? 1.Add  2.Find");
+            System.out.println("Would you like to Add or Find a book? 1.Add  2.Find 3.check Genres");
             int option = scanner.nextInt();
             scanner.nextLine();
 
@@ -23,6 +23,14 @@ public class Main {
                     Book book = library.findBook(scanner);
                     System.out.println("\nTitle: " + book.title + "\nGenre: " + book.genre + "\nPages: " + book.numberOfPages);
                     break;
+                case 3:
+                    System.out.println("Please write the genre you want us to check");
+                    String genreToCheck = scanner.nextLine();
+                    if (library.doesGenreExist(genreToCheck)) {
+                        System.out.println("We Have Books of this Genre!");
+                    } else {
+                        System.out.println("We don't have books of this Genre");
+                    }
                 default:
                     System.out.println("Please enter 1 or 2");
                     break;
